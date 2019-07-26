@@ -1,4 +1,4 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import CounterScreen from '../../Screens/CounterScreen'
 import HomeScreen from '../../Screens/HomeScreen'
@@ -9,13 +9,14 @@ export enum ROUTES {
 }
 export const FIRST_SCREEN = ROUTES.Home
 
-const PrimaryNav = createSwitchNavigator(
+const PrimaryNav = createStackNavigator(
   {
     [ROUTES.Home]: HomeScreen,
     [ROUTES.Counter]: CounterScreen
   },
   {
-    initialRouteName: FIRST_SCREEN
+    initialRouteName: FIRST_SCREEN,
+    headerMode: 'none'
   }
 )
 export default createAppContainer(PrimaryNav)

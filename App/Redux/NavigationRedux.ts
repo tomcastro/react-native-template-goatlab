@@ -3,9 +3,12 @@ import { AnyAction, Reducer } from 'redux'
 import AppNavigation from '../Navigation/AppNavigation'
 import StoreState from '../Types/StoreState'
 
-type StateInput = Partial<StoreState>
+/* ------------- Selectors ------------- */
 
-export const navReducer: Reducer<StoreState> = (
+export const navSelector = (state: StoreState) => state.nav
+
+/* ------------- Reducers ------------- */
+export const reducer: Reducer<StoreState> = (
   state: StoreState | undefined,
   action
 ) => {

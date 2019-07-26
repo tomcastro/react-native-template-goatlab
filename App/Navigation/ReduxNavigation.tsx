@@ -6,15 +6,15 @@ import {
   createReduxContainer
 } from 'react-navigation-redux-helpers'
 import { useDispatch, useSelector } from 'react-redux'
-import StoreState from '../Types/StoreState'
+import { navSelector } from '../Redux/NavigationRedux'
 import AppNavigation, { FIRST_SCREEN } from './AppNavigation'
 
-createReactNavigationReduxMiddleware((state: StoreState) => state.nav)
+createReactNavigationReduxMiddleware(navSelector)
 
 const ReduxAppNavigator = createReduxContainer(AppNavigation)
 
 export default () => {
-  const nav: NavigationState = useSelector((state: StoreState) => state.nav)
+  const nav: NavigationState = useSelector(navSelector)
   const dispatch = useDispatch()
   const componentWillUnmount = () => {
     if (Platform.OS === 'ios') {
