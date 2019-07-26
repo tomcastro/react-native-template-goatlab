@@ -7,7 +7,7 @@ import {
   Text,
   View
 } from 'react-native'
-import { Button } from 'react-native-elements'
+import { Button, Icon } from 'react-native-elements'
 import {
   Colors,
   DebugInstructions,
@@ -25,6 +25,7 @@ const App = props => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
+        <Icon name="rowing" />
         <Button
           title="Solid Button"
           onPress={() => props.navigation.navigate(ROUTES.Counter)}
