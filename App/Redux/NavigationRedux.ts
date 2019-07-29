@@ -1,7 +1,7 @@
 import { AnyAction, Reducer } from 'redux'
 
-import AppNavigation from '../Navigation/AppNavigation'
-import StoreState from '../Types/StoreState'
+import AppNavigation from 'appSrc/Navigation/AppNavigation'
+import StoreState from 'appSrc/Types/StoreState'
 
 /* ------------- Selectors ------------- */
 

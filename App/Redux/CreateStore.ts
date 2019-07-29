@@ -1,5 +1,4 @@
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
-import Reactotron from 'reactotron-react-native'
 import {
   applyMiddleware,
   compose,
@@ -8,11 +7,12 @@ import {
   StoreEnhancer
 } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import Config from '../Config/DebugConfig'
-import ReduxPersist from '../Config/ReduxPersist'
-import Rehydration from '../Services/Rehydration'
-import StoreState from '../Types/StoreState'
 import ScreenTracking from './ScreenTrackingMiddleware'
+
+import Config from 'appSrc/Config/DebugConfig'
+import ReduxPersist from 'appSrc/Config/ReduxPersist'
+import Rehydration from 'appSrc/Services/Rehydration'
+import StoreState from 'appSrc/Types/StoreState'
 
 // creates the store
 export default (rootReducer, rootSaga) => {

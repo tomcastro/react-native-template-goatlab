@@ -1,44 +1,12 @@
-// import { AnyAction } from 'redux'
-// import { Actions, createActions } from 'reduxsauce'
-import StoreState from '../Types/StoreState'
+import StoreState from 'appSrc/Types/StoreState'
 
-// export interface AppTypes {
-//   APP_START: 'APP_START'
-//   INCREASE_COUNTER: 'INCREASE_COUNTER'
-// }
-
-// export interface AppStartAction extends AnyAction {
-//   type: AppTypes['APP_START']
-//   payload: {}
-// }
-
-// export interface SomeParamAction extends AnyAction {
-//   type: AppTypes['SOME_PARAM']
-//   payload: {
-//     thisIsIt: string
-//   }
-// }
-
-// interface AppActions {
-//   appStart(): AppStartAction
-//   someParam(thisIsIt: string): SomeParamAction
-// }
-
-// export const { Types, Creators } = createActions<AppActions, AppTypes>({
-//   appStart: null,
-//   someParam: ['thisIsIt']
-// })
-
-// Creators.appStart()
-// Creators.someParam('things')
 import { createActions, createReducer } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 
 /* ------------- Types and Action Creators ------------- */
-
 const { Types, Creators } = createActions({
-  increase: [],
-  decrease: []
+  increase: null,
+  decrease: null
 })
 
 export const CounterTypes = Types

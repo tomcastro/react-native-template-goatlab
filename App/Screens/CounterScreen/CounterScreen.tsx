@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Col, Grid, Row } from 'react-native-easy-grid'
 import { Button, Text } from 'react-native-elements'
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState
+} from 'react-navigation'
 import { useDispatch, useSelector } from 'react-redux'
-import Container from '../../Components/Container'
-import Header from '../../Components/Header'
-import { counterSelector } from '../../Redux/CounterRedux'
-import CounterActions from '../../Redux/CounterRedux'
+import { Dispatch } from 'redux'
+
+import Container from 'appSrc/Components/Container'
+import Header from 'appSrc/Components/Header'
+import CounterActions from 'appSrc/Redux/CounterRedux'
+import { counterSelector } from 'appSrc/Redux/CounterRedux'
 import styles from './CounterScreenStyles'
 
-export default props => {
-  const counter = useSelector(counterSelector)
-  const dispatch = useDispatch()
+interface Props {
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>
+}
+
+const CounterScreen: FC<Props> = props => {
+  const counter: Number = useSelector(counterSelector)
+  const dispatch: Dispatch = useDispatch()
   const actions = {
     increase: () => dispatch(CounterActions.increase()),
     decrease: () => dispatch(CounterActions.decrease())
@@ -38,3 +49,4 @@ export default props => {
     </>
   )
 }
+export default CounterScreen
