@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { ActivityIndicator } from 'react-native'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/lib/integration/react'
-import '../Config'
-import DebugConfig from '../Config/DebugConfig'
-import createStore from '../Redux'
+
+import 'appSrc/Config'
+import DebugConfig from 'appSrc/Config/DebugConfig'
+import createStore from 'appSrc/Redux'
 import RootContainer from './RootContainer'
 
 // create our store
@@ -21,7 +22,7 @@ const persistor = persistStore(store)
  *
  * We separate like this to play nice with React Native's hot reloading.
  */
-const App = () => {
+const App: FC = () => {
   return (
     <Provider store={store}>
       <PersistGate

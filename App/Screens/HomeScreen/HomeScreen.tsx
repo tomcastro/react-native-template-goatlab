@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Button } from 'react-native-elements'
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState
+} from 'react-navigation'
 
-import Container from '../../Components/Container'
-import Header from '../../Components/Header'
-import { ROUTES } from '../../Navigation/AppNavigation'
+import Container from 'appSrc/Components/Container'
+import Header from 'appSrc/Components/Header'
+import { ROUTES } from 'appSrc/Navigation/AppNavigation'
 
-export default props => {
+interface Props {
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>
+}
+
+const HomeScreen: FC<Props> = props => {
   return (
     <>
       <Header />
@@ -18,3 +27,5 @@ export default props => {
     </>
   )
 }
+
+export default HomeScreen
