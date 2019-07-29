@@ -10,6 +10,10 @@
     "noImplicitAny": false,
     "noEmit": true,
     "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "appSrc/*": ["App/*"]
+    },
     "target": "esnext"
   },
   "exclude": [

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import { BackHandler, Platform } from 'react-native'
 import { NavigationState } from 'react-navigation'
 import {
@@ -6,22 +6,25 @@ import {
   createReduxContainer
 } from 'react-navigation-redux-helpers'
 import { useDispatch, useSelector } from 'react-redux'
-import { navSelector } from '../Redux/NavigationRedux'
+
+import { navSelector } from 'appSrc/Redux/NavigationRedux'
 import AppNavigation, { FIRST_SCREEN } from './AppNavigation'
 
 createReactNavigationReduxMiddleware(navSelector)
 
 const ReduxAppNavigator = createReduxContainer(AppNavigation)
 
-export default () => {
+const ReduxNavigation: FC = () => {
   const nav: NavigationState = useSelector(navSelector)
   const dispatch = useDispatch()
+
   const componentWillUnmount = () => {
     if (Platform.OS === 'ios') {
       return
     }
     BackHandler.removeEventListener('hardwareBackPress', () => {})
   }
+
   const componentDidMount = () => {
     if (Platform.OS === 'ios') {
       return
@@ -44,3 +47,5 @@ export default () => {
 
   return <ReduxAppNavigator dispatch={dispatch} state={nav} />
 }
+
+export default ReduxNavigation

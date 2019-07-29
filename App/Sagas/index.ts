@@ -1,5 +1,6 @@
 import { all, call, put, takeLatest, takeLeading } from 'redux-saga/effects'
-import DebugConfig from '../Config/DebugConfig'
+
+import DebugConfig from 'appSrc/Config/DebugConfig'
 
 /* ------------- Types ------------- */
 
