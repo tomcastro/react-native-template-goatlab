@@ -4,17 +4,19 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "lib": ["es2017"],
     "moduleResolution": "node",
     "noImplicitAny": false,
     "noEmit": true,
+    "resolveJsonModule": true,
     "strict": true,
     "baseUrl": ".",
     "paths": {
       "appSrc/*": ["App/*"]
     },
-    "target": "esnext"
+    "target": "esnext",
+    "incremental": true
   },
   "exclude": [
     "node_modules",

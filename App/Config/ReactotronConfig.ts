@@ -15,4 +15,4 @@ if (Reactotron.clear) {
   Reactotron.clear()
 }
 
-console.tron = Reactotron
+global.console.tron = Reactotron

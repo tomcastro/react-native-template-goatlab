@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Col, Grid, Row } from 'react-native-easy-grid'
-import { Button, Text } from 'react-native-elements'
+import { Button, Text } from 'react-native-ui-kitten'
 import {
   NavigationParams,
   NavigationScreenProp,
@@ -20,33 +20,39 @@ interface Props {
 }
 
 const CounterScreen: FC<Props> = props => {
-  const counter: Number = useSelector(counterSelector)
+  const counter: number = useSelector(counterSelector)
   const dispatch: Dispatch = useDispatch()
   const actions = {
     increase: () => dispatch(CounterActions.increase()),
     decrease: () => dispatch(CounterActions.decrease())
   }
-  return (
-    <>
-      <Header />
-      <Container>
-        <Grid style={styles.grid}>
-          <Row style={styles.row}>
-            <Col style={styles.button}>
-              <Button title="-" onPress={() => actions.decrease()} />
-            </Col>
-            <Col style={styles.center}>
-              <Text style={styles.text}>Counter: {counter}</Text>
-            </Col>
-            <Col style={styles.button}>
-              <Button title="+" onPress={() => actions.increase()} />
-            </Col>
-          </Row>
-        </Grid>
 
-        <Button title="Go back" onPress={() => props.navigation.goBack()} />
-      </Container>
-    </>
+  const ButtonText: string = `Counter: ${counter}`
+
+  return (
+    <Container>
+      <Header />
+      <Grid style={styles.grid}>
+        <Row style={styles.row}>
+          <Col style={styles.button}>
+            <Button
+              textStyle={styles.buttonText}
+              onPress={() => actions.decrease()}
+            >
+              -
+            </Button>
+          </Col>
+          <Col style={styles.center}>
+            <Text category="h1">{ButtonText}</Text>
+          </Col>
+          <Col style={styles.button}>
+            <Button onPress={() => actions.increase()}>+</Button>
+          </Col>
+        </Row>
+      </Grid>
+
+      <Button onPress={() => props.navigation.goBack()}>Go back</Button>
+    </Container>
   )
 }
 export default CounterScreen

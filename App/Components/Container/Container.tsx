@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
-import { SafeAreaView, View } from 'react-native'
+import { SafeAreaView } from 'react-native'
+import { Layout } from 'react-native-ui-kitten'
 import styles from './ContainerStyles'
 
 interface ContainerProps {
@@ -9,7 +10,7 @@ interface ContainerProps {
 const Container: FC<ContainerProps> = ({ children }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>{children}</View>
+      <Layout style={styles.container}>{children}</Layout>
     </SafeAreaView>
   )
 }

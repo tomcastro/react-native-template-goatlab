@@ -1,11 +1,13 @@
+import { light, mapping } from '@eva-design/eva'
 import React from 'react'
+import { ApplicationProvider } from 'react-native-ui-kitten'
 import { Provider } from 'react-redux'
 import renderer from 'react-test-renderer'
 
 import HomeScreen from 'appSrc/Screens/HomeScreen'
 import createStore from '../Mocks/createStore'
 
-const createTestProps = (props: Object) => ({
+const createTestProps = (props: {}) => ({
   navigation: {
     navigate: jest.fn()
   },
@@ -20,7 +22,9 @@ test('HomeScreen renders correctly', () => {
   const tree = renderer
     .create(
       <Provider store={store}>
-        <HomeScreen {...props} />
+        <ApplicationProvider mapping={mapping} theme={light}>
+          <HomeScreen {...props} />
+        </ApplicationProvider>
       </Provider>
     )
     .toJSON()
