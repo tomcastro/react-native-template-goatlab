@@ -1,4 +1,4 @@
-# React Native Goatlab Template {docsify-ignore}
+# React Native Goatlab Template
 
 *:goat: Developed by [Goat](https://goatlab.io) :goat:*
 
