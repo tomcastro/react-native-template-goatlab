@@ -1,5 +1,7 @@
 # React Native Goatlab Template
 
+[![npm version](https://badge.fury.io/js/react-native-template-goatlab.svg)](https://badge.fury.io/js/react-native-template-goatlab)
+
 *:goat: Developed by [Goat](https://goatlab.io) :goat:*
 
 Official template for React Native apps used by Goat for its iOS and Android apps. It is based on the newest and latest version of React Native and includes several starter packages for you to start your own app ASAP! :rocket:
