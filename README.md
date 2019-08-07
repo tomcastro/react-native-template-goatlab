@@ -1,6 +1,6 @@
 # React Native Goatlab Template
 
-[![npm version](https://badge.fury.io/js/react-native-template-goatlab.svg)](https://badge.fury.io/js/react-native-template-goatlab)
+![npm](https://img.shields.io/npm/v/react-native-template-goatlab?color=success&style=flat-square)
 
 *:goat: Developed by [Goat](https://goatlab.io) :goat:*
 
