@@ -1,4 +1,5 @@
-import { AnyAction, Reducer } from 'redux'
+import { NavigationAction, NavigationState } from 'react-navigation'
+import { Reducer } from 'redux'
 
 import AppNavigation from 'appSrc/Navigation/AppNavigation'
 import StoreState from 'appSrc/Types/StoreState'
@@ -8,13 +9,13 @@ import StoreState from 'appSrc/Types/StoreState'
 export const navSelector = (state: StoreState) => state.nav
 
 /* ------------- Reducers ------------- */
-export const reducer: Reducer<StoreState> = (
-  state: StoreState | undefined,
+export const reducer: Reducer<NavigationState, NavigationAction> = (
+  state: NavigationState | undefined,
   action
 ) => {
   // We'll augment the action type on the switch case to make sure we have
   // all the cases handled.
-  const newState: StoreState = AppNavigation.router.getStateForAction(
+  const newState: NavigationState = AppNavigation.router.getStateForAction(
     action,
     state
   )
