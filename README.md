@@ -32,7 +32,7 @@ To start using your app, first copy the existing `.env.example` file into a new 
 
 This template includes the following:
 
-* React Native 0.60.4 (now with Hooks support! :raised_hands:)
+* React Native 0.60 support (now with Hooks! :raised_hands:)
 * Entirely written in Typescript
 * Easy to use and understand folder structure to get you up and running as fast as possible
 * Starter example with an essential counter component :sweat_smile:
