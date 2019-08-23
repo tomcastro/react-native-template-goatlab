@@ -35,12 +35,12 @@ This template includes the following:
 * React Native 0.60 support (now with Hooks! :raised_hands:)
 * Entirely written in Typescript
 * Easy to use and understand folder structure to get you up and running as fast as possible
-* Starter example with an essential counter component :sweat_smile:
+* Starter example with an essential counter component and a cat-tastic component :cat:
 * [UI Kitten](https://akveo.github.io/react-native-ui-kitten/) component framework and themes
 * [React Navigation](https://reactnavigation.org/)
 * [Reactotron](https://github.com/infinitered/reactotron) configured for debugging (including console.tron shortcut)
 * [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/) for component testing
-* Redux support
+* Redux support (with Sagas example)
 * ESLint, TSLint and Prettier configured out-of-the-box
 * Visual Studio Code settings for Prettier and ESLint (:warning: must install VSCode extensions to use them)
 
