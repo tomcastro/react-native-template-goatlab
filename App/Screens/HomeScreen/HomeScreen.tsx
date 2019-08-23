@@ -5,17 +5,18 @@ import {
   NavigationScreenProp,
   NavigationState
 } from 'react-navigation'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Container from 'appSrc/Components/Container'
 import Header from 'appSrc/Components/Header'
 import { ROUTES } from 'appSrc/Navigation/AppNavigation'
+import CatActions, { CatSelectors } from 'appSrc/Redux/CatRedux'
 
-import { ListRenderItemInfo } from 'react-native'
+import { PropsWithNavigation } from 'appSrc/Types/PropsWithNavigation.js'
+import { Image, ListRenderItemInfo, View } from 'react-native'
 import { dependencies } from '../../../package.json'
 
-interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>
-}
+import styles from './HomeScreenStyles'
 
 interface Data {
   name: string
@@ -35,6 +36,10 @@ const data: Data[] = [
   {
     name: 'React Navigation',
     version: `${dependencies['react-navigation']}`
+  },
+  {
+    name: 'Redux',
+    version: `${dependencies.redux}`
   }
 ]
 
@@ -44,11 +49,21 @@ const renderItem = (
   return <ListItem title={info.item.name} description={info.item.version} />
 }
 
-const HomeScreen: FC<Props> = props => {
+const HomeScreen: FC<PropsWithNavigation> = props => {
+  const dispatch = useDispatch()
+  const actions = {
+    getCat: () => dispatch(CatActions.catRequest())
+  }
+  const url = useSelector(CatSelectors.selectAvatar)
   return (
     <Container>
       <Header />
       <List data={data} renderItem={renderItem} />
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: url }} style={styles.image} />
+      </View>
+
+      <Button onPress={actions.getCat}>Get cat</Button>
       <Button onPress={() => props.navigation.navigate(ROUTES.Counter)}>
         Navigation test
       </Button>

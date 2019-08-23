@@ -1,7 +1,10 @@
-import StoreState from 'appSrc/Types/StoreState'
+import StoreState, { CounterState } from 'appSrc/Types/StoreState'
 
 import { createActions, createReducer } from 'reduxsauce'
-import Immutable from 'seamless-immutable'
+import Immutable, {
+  ImmutableObject,
+  ImmutableObjectMixin
+} from 'seamless-immutable'
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
@@ -14,23 +17,24 @@ export default Creators
 
 /* ------------- Initial State ------------- */
 
-export const INITIAL_STATE = Immutable({ value: 0 })
+const initState: CounterState = {
+  value: 0
+}
+export const INITIAL_STATE = Immutable(initState)
 
 /* ------------- Selectors ------------- */
 
 export const counterSelector = (state: StoreState) => state.counter.value
 
 /* ------------- Reducers ------------- */
-function inc(x) {
-  return x + 1
-}
-function dec(x) {
-  return x - 1
-}
+const inc = (x: number) => x + 1
+const dec = (x: number) => x - 1
 
-export const increaseReducer = state => Immutable.update(state, 'value', inc)
+export const increaseReducer = (state: ImmutableObject<CounterState>) =>
+  state.update('value', inc)
 
-export const decreaseReducer = state => Immutable.update(state, 'value', dec)
+export const decreaseReducer = (state: ImmutableObject<CounterState>) =>
+  state.update('value', dec)
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {

@@ -1,13 +1,19 @@
 import { NavigationState } from 'react-navigation'
+import { ImmutableObject } from 'seamless-immutable'
 
-interface Counter {
-  value: Number
+export interface CounterState {
+  value: number
+}
+
+export interface CatState {
+  avatar?: string
+  fetching: boolean
+  error: boolean
+  username?: string
 }
 
 export default interface StoreState {
-  /**
-   * Index refers to the active child route in the routes array.
-   */
   nav: NavigationState
-  counter: Counter
+  counter: ImmutableObject<CounterState>
+  cat: ImmutableObject<CatState>
 }

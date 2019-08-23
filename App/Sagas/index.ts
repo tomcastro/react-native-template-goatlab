@@ -1,18 +1,15 @@
-import { all, call, put, takeLatest, takeLeading } from 'redux-saga/effects'
-
-import DebugConfig from 'appSrc/Config/DebugConfig'
+import { all, takeLatest } from 'redux-saga/effects'
 
 /* ------------- Types ------------- */
+import { CatTypes } from 'appSrc/Redux/CatRedux'
 
 /* ------------- Sagas ------------- */
+import { getCatAvatar } from './CatSagas'
 
 /* ------------- API ------------- */
 
-// The API we use is only used from Sagas, so we create it here and pass along
-// to the sagas which need it.
-
 /* ------------- Connect Types To Sagas ------------- */
-
 export default function* root() {
-  yield all([])
+  console.tron.log(CatTypes.CAT_REQUEST)
+  yield all([takeLatest(CatTypes.CAT_REQUEST, getCatAvatar)])
 }

@@ -1,3 +1,4 @@
+import StoreState from 'appSrc/Types/StoreState'
 import R from 'ramda'
 import Immutable from 'seamless-immutable'
 

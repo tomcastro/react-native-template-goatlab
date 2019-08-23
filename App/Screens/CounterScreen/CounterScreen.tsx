@@ -1,11 +1,7 @@
 import React, { FC } from 'react'
 import { Col, Grid, Row } from 'react-native-easy-grid'
 import { Button, Text } from 'react-native-ui-kitten'
-import {
-  NavigationParams,
-  NavigationScreenProp,
-  NavigationState
-} from 'react-navigation'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 
@@ -13,14 +9,11 @@ import Container from 'appSrc/Components/Container'
 import Header from 'appSrc/Components/Header'
 import CounterActions from 'appSrc/Redux/CounterRedux'
 import { counterSelector } from 'appSrc/Redux/CounterRedux'
+import { PropsWithNavigation } from 'appSrc/Types/PropsWithNavigation'
 import styles from './CounterScreenStyles'
 
-interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>
-}
-
-const CounterScreen: FC<Props> = props => {
-  const counter: number = useSelector(counterSelector)
+const CounterScreen: FC<PropsWithNavigation> = props => {
+  const counter = useSelector(counterSelector)
   const dispatch: Dispatch = useDispatch()
   const actions = {
     increase: () => dispatch(CounterActions.increase()),

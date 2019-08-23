@@ -1,9 +1,11 @@
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
 import {
+  AnyAction,
   applyMiddleware,
   compose,
   createStore,
   Middleware,
+  Reducer,
   StoreEnhancer
 } from 'redux'
 import createSagaMiddleware from 'redux-saga'
@@ -15,7 +17,7 @@ import Rehydration from 'appSrc/Services/Rehydration'
 import StoreState from 'appSrc/Types/StoreState'
 
 // creates the store
-export default (rootReducer, rootSaga) => {
+export default (rootReducer: Reducer<StoreState, AnyAction>, rootSaga) => {
   /* ------------- Redux Configuration ------------- */
 
   const middleware: Middleware[] = []
@@ -55,7 +57,7 @@ export default (rootReducer, rootSaga) => {
   }
 
   // kick off root saga
-  const sagasManager = sagaMiddleware.run(rootSaga)
+  const sagasManager: any = sagaMiddleware.run(rootSaga)
 
   return {
     store,

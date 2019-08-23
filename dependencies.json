@@ -12,5 +12,6 @@
   "redux-persist": "^5.10.0",
   "redux-saga": "^1.0.5",
   "reduxsauce": "^1.1.0",
-  "seamless-immutable": "^7.1.4"
+  "seamless-immutable": "^7.1.4",
+  "apisauce": "^1.0.3"
 }
